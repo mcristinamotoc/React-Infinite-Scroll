@@ -1,16 +1,19 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	left: 0px;
-	font: normal normal normal 26px/32px Helvetica Neue;
-	letter-spacing: 0px;
-	color: #7d868b;
-	background: #e6f2f2 0% 0% no-repeat padding-box;
-	opacity: 1;
-	border: 1px solid #b5dddd;
-	max-width: 100%;
-	height: 5rem;
-`;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  left: 0px; 
+  opacity: 1;
+  max-width: 80%;
+  height: 5rem;
+  margin: 2rem auto;
+  border: 5px solid #CCEEFF;
+  font: bold normal normal 1.8rem/2rem Helvetica Neue;
+  background-image: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+ `;
