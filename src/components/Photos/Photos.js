@@ -6,16 +6,17 @@ import axios from "axios";
 
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
-  
+
   useEffect(() => {
     getPhotos();
   }, [photos]);
 
   const getPhotos = () => {
-    axios.get(`https://jsonplaceholder.typicode.com/photos`)
-    .then((response) => {
-      setPhotos([...photos, ...response.data]);
-    });
+    axios
+      .get(`https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10`)
+      .then((response) => {
+        setPhotos([...photos, ...response.data]);
+      });
   };
 
   return (
@@ -27,12 +28,12 @@ const Photos = () => {
         loader={<Loader/>}
       >
         <StyledCard>
-          {photos.map((photo) => (
-              <StyledImg 
-              src={photo.thumbnailUrl} 
-              alt={photo.title} 
-              key={photo.id}>         
-              </StyledImg>
+          {photos.map((photo,index) => (
+            <StyledImg
+              key={index}
+              src={photo.thumbnailUrl}
+              alt={photo.title}
+            ></StyledImg>
           ))}
         </StyledCard>
       </InfiniteScroll>
