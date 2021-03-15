@@ -16,4 +16,10 @@ export const StyledHeader = styled.header`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
  
+  @media only screen and (max-width: 468px) {
+		padding-bottom: 2rem;
+		padding-top: 2rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
  `;
