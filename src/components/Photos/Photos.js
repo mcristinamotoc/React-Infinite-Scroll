@@ -10,11 +10,11 @@ const Photos = () => {
 
   useEffect(() => {
     getPhotos();
-  }, [photos]);
+  }, []);
 
-  const getPhotos = () => {
+  const getPhotos = (limit) => {
     axios
-      .get(`https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10`)
+      .get(`https://jsonplaceholder.typicode.com/photos?_start=0&_limit=&{limit}`)
       .then((response) => {
         setPhotos([...photos, ...response.data]);
       });
@@ -27,24 +27,6 @@ const Photos = () => {
     setNewPhotos([...newPhotos]);
   };
 
-  // const deleteData = (id) => {
-  //   const deleteData = async () => {
-  //     const response = await fetch(
-  //       "https://jsonplaceholder.typicode.com/photos/&{id}",
-  //       {
-  //         method: "DELETE",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: null,
-  //       }
-  //     );
-
-  //     const data = await response.json();
-  //   };
-  //   deleteData();
-  // };
- 
 
   return (
     <>
@@ -60,7 +42,7 @@ const Photos = () => {
               key={index}
               src={photo.thumbnailUrl}
               alt={photo.title}
-              onClick={deleteData}
+              onClick={()=>deleteData(index)}
             ></StyledImg>
           ))}
         </StyledCard>
