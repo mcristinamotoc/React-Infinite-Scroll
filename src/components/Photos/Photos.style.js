@@ -17,6 +17,13 @@ export const StyledCard = styled.div`
     grid-auto-rows: 18.75rem;
     margin: auto;
 	}
+  @media only screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1em;
+    grid-auto-rows: 18.75rem;
+    margin: auto;
+	}
 `;
 
 export const StyledImg = styled.img`
