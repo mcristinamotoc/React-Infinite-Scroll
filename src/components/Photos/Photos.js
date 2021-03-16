@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
+  const [newPhotos, setNewPhotos]=useState([]);
 
   useEffect(() => {
     getPhotos();
@@ -18,6 +19,32 @@ const Photos = () => {
         setPhotos([...photos, ...response.data]);
       });
   };
+
+  const deleteData = (index) => {
+    const newPhotos = photos;
+    newPhotos.splice(index,1);
+    console.log(newPhotos);
+    setNewPhotos([...newPhotos]);
+  };
+
+  // const deleteData = (id) => {
+  //   const deleteData = async () => {
+  //     const response = await fetch(
+  //       "https://jsonplaceholder.typicode.com/photos/&{id}",
+  //       {
+  //         method: "DELETE",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: null,
+  //       }
+  //     );
+
+  //     const data = await response.json();
+  //   };
+  //   deleteData();
+  // };
+ 
 
   return (
     <>
@@ -33,6 +60,7 @@ const Photos = () => {
               key={index}
               src={photo.thumbnailUrl}
               alt={photo.title}
+              onClick={deleteData}
             ></StyledImg>
           ))}
         </StyledCard>
